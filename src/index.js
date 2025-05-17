@@ -14,13 +14,13 @@ const PORT  = process.env.PORT || 8080;
 const app = express();
 const server = http.createServer(app);
 
-// const limiter = rateLimit({
-// 	windowMs: 10 * 60 * 1000, // 10 minutes
-// 	limit: 100,
-// 	legacyHeaders: false,
-// });
+const limiter = rateLimit({
+	windowMs: 10 * 60 * 1000, // 10 minutes
+	limit: 100,
+	legacyHeaders: false,
+});
 
-// app.use(limiter);
+app.use(limiter);
 
 app.use(cors({
     origin: process.env.FRONTENDURL,
